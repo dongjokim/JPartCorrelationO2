@@ -10,14 +10,13 @@
 #include "src/JBaseEventHeader.h"
 #include "src/JHistos.h"
 // AliPhysics includes 
-#include <AliBasicParticle.h>
-#include <AliCFContainer.h>
-#include <AliUEHistograms.h>
+#include "src/AliBasicParticle.h"
+#include "src/AliCFContainer.h"
+#include "src/AliUEHistograms.h"
 
 typedef unsigned int uint;
 using namespace std;
 
-/*
 int main(int argc, char **argv){
 
 	if ( argc < 2 ) {
@@ -25,11 +24,8 @@ int main(int argc, char **argv){
 		cout<<"+  "<<argv[0]<<" [outputFileList] [outputfile]"<<endl;
 		exit(1);
 	}
-	*/
-void  JCorrAnalysis(){
-
-	const char *inputfile = "mylist.txt";
-	const char *outputfile ="AnalysisResults.root";
+	char *inputfile = argv[1];
+	char *outputfile = argv[2];
 
 	TFile *pfo = new TFile(outputfile,"recreate","Final analysis");
 	TClonesArray *trackList = new TClonesArray("JBaseTrack",1000);
@@ -41,7 +37,7 @@ void  JCorrAnalysis(){
 
 	//==== Read the Data files =====
 	dmg->ChainInputStream(inputfile);
-	AliJEventHeader *eventHeader;
+	JBaseEventHeader *eventHeader;
 	//------------------------------------------------------------------------------
 	// For AliPhysics code from Jasper
 	//------------------------------------------------------------------------------

@@ -20,6 +20,26 @@ CXXFLAGS       += $(INCS)
 HDRSDICT = src/JBaseTrack.h src/JBaseEventHeader.h
 HDRS += $(HDRSDICT) src/JTreeDataManager.h \
 	src/JHistos.h \
+	src/AliAODPid.h \
+	src/AliAODRedCov.h \
+	src/AliAODTrack.h \
+	src/AliAODVertex.h \
+	src/AliBasicParticle.h \
+	src/AliCFContainer.h \
+	src/AliCFFrame.h \
+	src/AliCFGridSparse.h \
+	src/AliExternalTrackParam.h \
+	src/AliLog.h \
+	src/AliPID.h \
+	src/AliTPCdEdxInfo.h \
+	src/AliUEHist.h \
+	src/AliVMisc.h \
+	src/AliVParticle.h \
+	src/AliVTrack.h \
+	src/AliVVertex.h \
+	src/AliBasicParticle.h \
+	src/AliCFContainer.h \
+	src/AliUEHistograms.h \
 	nanoDict.h
 
 SRCS 		= $(HDRS:.h=.cxx)
