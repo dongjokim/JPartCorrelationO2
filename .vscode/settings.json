@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.bib": "bibtex",
+        "JToyMCAnalysis.C": "cpp",
+        "JCorrAnalysis.C": "cpp",
+        "jcorr.C": "cpp"
+    }
+}
