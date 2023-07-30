@@ -22,9 +22,10 @@ static void SignalHandler(int sig){
 	termFlag = 1;
 }
 
-void mc(uint seed = 1000, const TString &output = "AnalysisResults.root"){
-	setenv("PYTHIA8DATA","/cvmfs/alice.cern.ch/el6-x86_64/Packages/AliRoot/v5-09-57g_ROOT6-1/PYTHIA8/pythia8243/xmldoc",1);
-
+int main() {
+	uint seed = 1000;
+	const TString &output = "AnalysisResults.root";
+	setenv("PYTHIA8DATA","/root/alice/sw/ubuntu2204_x86-64/AliRoot/latest/PYTHIA8/pythia8243/xmldoc",1);
 	struct sigaction sa;
 	memset(&sa,0,sizeof(sa));
 	sa.sa_handler = SignalHandler;

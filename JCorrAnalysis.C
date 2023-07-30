@@ -17,6 +17,7 @@
 typedef unsigned int uint;
 using namespace std;
 
+/*
 int main(int argc, char **argv){
 
 	if ( argc < 2 ) {
@@ -24,9 +25,11 @@ int main(int argc, char **argv){
 		cout<<"+  "<<argv[0]<<" [outputFileList] [outputfile]"<<endl;
 		exit(1);
 	}
+	*/
+void  JCorrAnalysis(){
 
-	char *inputfile = argv[1];
-	char *outputfile = argv[2];
+	const char *inputfile = "mylist.txt";
+	const char *outputfile ="AnalysisResults.root";
 
 	TFile *pfo = new TFile(outputfile,"recreate","Final analysis");
 	TClonesArray *trackList = new TClonesArray("JBaseTrack",1000);
@@ -36,11 +39,9 @@ int main(int argc, char **argv){
 	JHistos *histos = new JHistos();
 	histos->CreateQAHistos();
 
-	JBaseEventHeader *eventHeader;
-
 	//==== Read the Data files =====
 	dmg->ChainInputStream(inputfile);
-	AliJBaseEventHeader *eventHeader;
+	AliJEventHeader *eventHeader;
 	//------------------------------------------------------------------------------
 	// For AliPhysics code from Jasper
 	//------------------------------------------------------------------------------
@@ -110,7 +111,7 @@ int main(int argc, char **argv){
 		uint mult = 0; // UE
 		tracks.Clear();
 
-		eventHeader  = dmg->GetEventHeader();
+		//eventHeader  = dmg->GetEventHeader();
 		//cout << eventHeader->GetEventID() << endl;
 		if(!dmg->IsGoodEvent()) continue;  // Vertex cut applied in IsGoodEvent and histo saved there too
 
@@ -120,8 +121,8 @@ int main(int argc, char **argv){
 		//---- assign input list ----
 		int noAllTracks = inputList->GetEntries();
 		// calculate multiplicity
-		for(int itrack=0; itrack<noAllTracks; itrack++){
-			JBaseTrack *trk = (JBaseTrack*)inputList->At(itrack);
+	        for(uint j = 0, k = 0, l = noAllTracks; j < l; ++j){
+			JBaseTrack *trk = (JBaseTrack*)inputList->At(j);
 			histos->fhPt->Fill(trk->Pt());
 			histos->fheta->Fill(trk->Eta());
 			//include pT > 1.0 GeV particles only in the correlations
@@ -129,7 +130,7 @@ int main(int argc, char **argv){
 				double phi = trk->Phi() < 0.0?2.0*TMath::Pi()+trk->Phi():trk->Phi(); //Add 2pi if negative
 				new(&particles[k]) AliBasicParticle(trk->Eta(),phi,trk->Pt(),1);
 				tracks.Add(&particles[k]);
-				particles[k].SetUniqueID(i*MAX_TRACKS+j);
+				particles[k].SetUniqueID(evt*MAX_TRACKS+j);
 				++k;
 			}
 			if(TMath::Abs(trk->Eta()) < 1.0 && trk->Pt() > 0.2)

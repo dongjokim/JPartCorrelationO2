@@ -1,4 +1,4 @@
-PROGRAM         = JCorrAnalysis
+PROGRAM         = runmc 
 
 LIBDIRARCH      = lib
 
@@ -11,7 +11,7 @@ CXXFLAGS        += $(shell root-config --cflags)
 LIBS            = $(shell root-config --libs)
 
 #INCS += $(shell $(FASTJET)/bin/fastjet-config --cxxflags )
-#LIBS += $(shell $(FASTJET)/bin/fastjet-config --libs --plugins ) $(INCS)
+LIBS += $(LD_LIBRARY_PATH)
 
 #LIBS	       += -L$(PYTHIA8)/$(LIBDIRARCH) -lpythia8 -llhapdfdummy
 #INCS           += -I$(PYTHIA8)/include 
