@@ -37,7 +37,7 @@ int main(int argc, char **argv){
 
 	//==== Read the Data files =====
 	dmg->ChainInputStream(inputfile);
-	JBaseEventHeader *eventHeader;
+	//JBaseEventHeader *eventHeader;
 	//------------------------------------------------------------------------------
 	// For AliPhysics code from Jasper
 	//------------------------------------------------------------------------------
@@ -168,7 +168,7 @@ int main(int argc, char **argv){
 	delete pueSame;
 	delete pueMixed;
 
-	//delete prng;
+	delete prng;
 
 	delete []ptracksPrevEvent;
 	delete []pmultParticles;
@@ -182,4 +182,3 @@ int main(int argc, char **argv){
 	cout<<"All files properly closed. Good Bye!"<<endl;
 
 }
-

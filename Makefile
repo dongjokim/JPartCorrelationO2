@@ -25,7 +25,6 @@ HDRS += $(HDRSDICT) src/JTreeDataManager.h \
 	src/AliAODTrack.h \
 	src/AliAODVertex.h \
 	src/AliBasicParticle.h \
-	src/AliCFContainer.h \
 	src/AliCFFrame.h \
 	src/AliCFGridSparse.h \
 	src/AliExternalTrackParam.h \
@@ -37,7 +36,6 @@ HDRS += $(HDRSDICT) src/JTreeDataManager.h \
 	src/AliVParticle.h \
 	src/AliVTrack.h \
 	src/AliVVertex.h \
-	src/AliBasicParticle.h \
 	src/AliCFContainer.h \
 	src/AliUEHistograms.h \
 	nanoDict.h
