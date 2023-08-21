@@ -142,7 +142,7 @@ int main(int argc, char **argv){
 
 		//calculate and fill the correlations
 		double zvertex = 0.0;
-		pueSame->FillEvent(multD,AliUEHist::kCFStepReconstructed); //Step does not matter in this case. Step 0 (MC truth) would be better label
+		//pueSame->FillEvent(multD,AliUEHist::kCFStepReconstructed); //Step does not matter in this case. Step 0 (MC truth) would be better label
 
 		float weight = 1.0f;
 		pueSame->FillCorrelations(multD,zvertex,AliUEHist::kCFStepReconstructed,&tracks,0,weight);
