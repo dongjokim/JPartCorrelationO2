@@ -173,7 +173,7 @@ int main(int argc, char **argv){
 	delete []ptracksPrevEvent;
 	delete []pmultParticles;
 
-	delete phistosOut;
+	//delete phistosOut;
 	
 	timer.Print();
 
